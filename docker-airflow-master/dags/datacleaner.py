@@ -18,6 +18,8 @@ def data_cleaner():
 
 	df['STORE_LOCATION'] = df['STORE_LOCATION'].map(lambda x:clean_store_location(x))
 	df['PRODUCT_ID'] = df['PRODUCT_ID'].map(lambda x: clean_product_id(x))
+	df['Date'] = pd.to_datetime(df['Date'])
+	df['Date'] = df['Date'].dt.strftime('%Y-%m-%d') 
 
 	for to_clean in ['MRP', 'CP', 'DISCOUNT', 'SP']:
 		df[to_clean] = df[to_clean].map(lambda x: remove_dollar(x))
