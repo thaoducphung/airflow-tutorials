@@ -4,12 +4,11 @@ from datetime import datetime, timedelta
 from airflow.models import Variable
 
 default_args = {
-	
 	'owner':'airflow',
 	'start_date':datetime(2021,8,14)
 }
 
-with DAG("variable",
+with DAG("variable1",
 	default_args=default_args,
 	schedule_interval=timedelta(1)
 ) as dag:
